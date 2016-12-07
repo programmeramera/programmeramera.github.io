@@ -4,12 +4,6 @@ title: Om
 permalink: /about/
 ---
 
-This is the base Jekyll theme. You can find out more info about customizing your Jekyll theme, as well as basic Jekyll usage documentation at [jekyllrb.com](http://jekyllrb.com/)
+Jag är långt ifrån klar vad syftet är med denna sajt, men inledningsvis så hoppas jag att kunna hjälpa till att fler utvecklare lär sig mer om programmering som är min egna stora passion. Jag själv heter Johan Lindfors och driver en konsultfirma som heter [Coderox][coderox] där jag hjälper kunder med att utveckla olika typer av lösningar, primärt på Microsofts plattform och tekniker. Grunden till mitt egna intresse i programmering lades när jag i början av 80-talet gick min första programmeringskurs på Medborgarskolan i Basic på ABC-80 och sedan dess har intresset för datorer och just utveckling aldrig svalnat. 
 
-You can find the source code for the Jekyll new theme at:
-{% include icon-github.html username="jekyll" %} /
-[minima](https://github.com/jekyll/minima)
-
-You can find the source code for Jekyll at
-{% include icon-github.html username="jekyll" %} /
-[jekyll](https://github.com/jekyll/jekyll)
+[coderox]: http://coderox.se

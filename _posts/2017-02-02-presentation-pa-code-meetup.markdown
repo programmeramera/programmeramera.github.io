@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Presentation på Code Meetup!"
-date:   2017-02-01 08:48:31 +0200
+date:   2017-02-02 08:48:31 +0200
 categories: presentation
 ---
 

@@ -11,17 +11,17 @@ Jag har precis kommit hem från en mycket rolig dag där jag blivit inbjuden til
 Jag kan erkänna att jag inte kan minnas när jag var så nervös som inför denna presentation/workshop eftersom ämnet står mig väldigt varmt om hjärtat och jag ville verkligen inte klanta mig och göra det tråkigt eller för detaljerat. Det fanns också en del faktorer som gjorde det extra spännande:
 
 1. Eleverna har bara tillgång till iPads
-+  De har redan provat på Scratch och ville inte göra det igen
-+  De går i 4:an eller 5:an och har alltså inte läst engelska mer än kanske ett par år
+2. De har redan provat på Scratch och ville inte göra det igen
+3. De går i 4:an eller 5:an och har alltså inte läst engelska mer än kanske ett par år
 
 Det slutade i en agenda enligt följande:
 
 90 minuter: Att tänka som en dator
 ---
 Här gick jag igenom vad programmering innebär, problemlösning, mönster, språk, algoritmer och en hel del av teorin bakom praktiken. Jag trodde verkligen att eleverna skulle somna efter 5 minuter, men de satt som ljus och det var nog några av de praktiska övningarna som hjälpte till med detta.
----
-90 minuter: Programmering med [Cargo-Bot]
 
+90 minuter: Programmering med [Cargo-Bot]
+---
 Jag valde sedan att använda mig av [Cargo-Bot] som är ett spel på iPad som konkretiserar hur en programmerare tvingas bryta upp problem i flera delar, loopar, villkor, register, program osv. Att sedan [Cargo-Bot] också är utvecklat för iPad på en iPad (med hjälp av [Codea]) gjorde bara användningen roligare.
 
 90 minuter: Progammering med Python

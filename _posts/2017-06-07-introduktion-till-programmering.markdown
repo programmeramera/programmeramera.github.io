@@ -24,7 +24,7 @@ Här gick jag igenom vad programmering innebär, problemlösning, mönster, spr�
 ---
 Jag valde sedan att använda mig av [Cargo-Bot] som är ett spel på iPad som konkretiserar hur en programmerare tvingas bryta upp problem i flera delar, loopar, villkor, register, program osv. Att sedan [Cargo-Bot] också är utvecklat för iPad på en iPad (med hjälp av [Codea]) gjorde bara användningen roligare.
 
-90 minuter: Progammering med Python
+90 minuter: Programmering med Python
 ---
 Sen tog jag tjuren vid hornen och introducerade lite riktig programmering med hjälp av Python och [Python Anywhere] som gör det möjligt att koda och exekvera python skript utan någon som helst installation. Överlag fungerade det bra, men jag tror att vi registrerade lite för många konton från samma IP så det gillades inte efter kanske 15 registreringar, eleverna fick istället sitta två och två på vissa paddor. Men det gick bra. När det var 45 minuter kvar och jag märkte att energin började tryta så plockade jag fram min HoloLens och de flesta eleverna fick prova på förstärkt verklighet ("Augmented Reality") vilket var en stor hit. Engergin kom tillbaka och jag avslutade passet med att visa hur javascript och [Phaser.IO] kan användas för att bygga spel, mycket baserat på det som eleverna lärt sig under dagen.
 

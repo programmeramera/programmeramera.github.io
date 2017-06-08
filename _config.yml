@@ -21,6 +21,7 @@ baseurl: "" # the subpath of your site, e.g. /blog
 url: "http://www.programmeramera.se" # the base hostname & protocol for your site
 twitter_username: programmeramera
 github_username:  programmeramera
+lang: sv
 
 # Build settings
 markdown: kramdown

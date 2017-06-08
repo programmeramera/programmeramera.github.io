@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Introduktion till programmering"
+title:  "Introducing programming"
 date:   2017-06-07 07:00:00 +0100
 categories: programming introduction schools
 lang: en

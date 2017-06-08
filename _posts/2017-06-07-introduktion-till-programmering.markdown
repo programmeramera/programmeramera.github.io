@@ -26,7 +26,9 @@ Jag valde sedan att använda mig av [Cargo-Bot] som är ett spel på iPad som ko
 
 90 minuter: Programmering med Python
 ---
-Sen tog jag tjuren vid hornen och introducerade lite riktig programmering med hjälp av Python och [Python Anywhere] som gör det möjligt att koda och exekvera python skript utan någon som helst installation. Överlag fungerade det bra, men jag tror att vi registrerade lite för många konton från samma IP så det gillades inte efter kanske 15 registreringar, eleverna fick istället sitta två och två på vissa paddor. Men det gick bra. När det var 45 minuter kvar och jag märkte att energin började tryta så plockade jag fram min HoloLens och de flesta eleverna fick prova på förstärkt verklighet ("Augmented Reality") vilket var en stor hit. Engergin kom tillbaka och jag avslutade passet med att visa hur javascript och [Phaser.IO] kan användas för att bygga spel, mycket baserat på det som eleverna lärt sig under dagen.
+Sen tog jag tjuren vid hornen och introducerade lite riktig programmering med hjälp av Python och [Python Anywhere] som gör det möjligt att koda och exekvera python skript utan någon som helst installation. Överlag fungerade det bra, men jag tror att vi registrerade lite för många konton från samma IP så det gillades inte efter kanske 15 registreringar, eleverna fick istället sitta två och två på vissa paddor. Men det gick bra. 
+
+När det var 45 minuter kvar och jag märkte att energin började tryta så plockade jag fram min HoloLens och de flesta eleverna fick prova på förstärkt verklighet ("Augmented Reality") vilket var en stor hit. Engergin kom tillbaka och jag avslutade passet med att visa hur javascript och [Phaser.IO] kan användas för att bygga spel, mycket baserat på det som eleverna lärt sig under dagen.
 
 Stort tack till [Bällstabergsskolan] som lät mig berätta om detta ämne och jag hoppas att jag får möjligheten att komma tillbaka vid senare tillfälle och kanske titta mer på AR/VR/MR eller spel-programmering.
 

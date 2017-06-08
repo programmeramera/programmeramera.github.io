@@ -1,0 +1,26 @@
+---
+layout: default_en
+lang: en
+ref: index
+---
+
+<div class="home">
+
+  <ul class="post-list">
+    {% assign posts=site.posts | where:"lang", page.lang %}
+    {% for post in posts %}
+      <li>
+        <span class="post-meta">{{ post.date | date: "%Y-%m-%d" }}</span>
+
+        <h2>
+          <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title | escape }}</a>
+        </h2>
+
+        <span class="post-content">{{ post.excerpt }}</span>
+      </li>
+    {% endfor %}
+  </ul>
+
+  <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">with RSS</a></p>
+
+</div>

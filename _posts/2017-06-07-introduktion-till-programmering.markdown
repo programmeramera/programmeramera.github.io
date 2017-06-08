@@ -3,6 +3,8 @@ layout: post
 title:  "Introduktion till programmering"
 date:   2017-06-06 07:00:00 +0100
 categories: programmering introduktion skolor
+lang: sv
+ref: introduktiontillprogrammering
 ---
 Jag har precis kommit hem från en mycket rolig dag där jag blivit inbjuden till [Bällstabergsskolan] i Vallentuna för att introducera några av deras elever till programmering. Skolan har kontinuerligt ett initiativ som kallas "elevens val" där eleverna ges möjligheten att välja aktiviteter som vanligtvis inte ryms inom den ordinarie utbildningsplanen och där var just "Programmering" ett ämne.
 

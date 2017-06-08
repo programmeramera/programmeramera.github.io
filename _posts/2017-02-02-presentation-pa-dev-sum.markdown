@@ -3,6 +3,8 @@ layout: post
 title:  "Presentation på Dev Sum!"
 date:   2017-02-02 08:48:31 +0200
 categories: presentation
+lang: sv
+ref: presentationdevsum2017
 ---
 
 Den 8:e och 9:e Juni arrangeras den årliga .NET utvecklarkonferensen [DevSum17][dev-sum] på Münchenbryggeriet i Stockholm. 

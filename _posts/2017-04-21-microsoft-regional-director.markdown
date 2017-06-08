@@ -3,6 +3,8 @@ layout: post
 title:  "Microsoft Regional Director!"
 date:   2017-04-21 07:00:00 +0100
 categories: business
+lang: sv
+ref: regionaldirectorannouncment
 ---
 
 Jag är både glad och stolt över att kunna berätta att jag har blivit nominerad och accepterad in i [Microsoft Regional Directors] programmet. Det innebär att jag med min bakgrund som utvecklare och arkitekt av flertalet appar och mobila lösningar nu har både möjligheten och förtroendet att bidra med mina åsikter och perspektiv till den fortsatta utvecklingen av Microsofts plattform. 

@@ -3,6 +3,8 @@ layout: post
 title:  "Fun with Advent of Code Day 13.2 and Surface Dial"
 date:   2016-12-14 00:00:00 +0100
 categories: adventofcode english surface uwp
+lang: en
+ref: adventofcode2015day13part2
 ---
 
 Warning: This post does include the solution to Advent of Code 2016 Day 13 part 2!

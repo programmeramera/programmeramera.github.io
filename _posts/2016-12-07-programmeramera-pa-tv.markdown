@@ -3,6 +3,8 @@ layout: post
 title:  "Programmera mera på tv!"
 date:   2016-12-07 00:00:00 +0100
 categories: utbildning
+lang: sv
+ref: programmeramerapatv
 ---
 
 Visste du om att Sveriges Television under flera månader har producerat och sänt program på tv om just programmering, under det vackra namnet "Programmera mera".

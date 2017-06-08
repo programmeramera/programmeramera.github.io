@@ -3,6 +3,8 @@ layout: post
 title:  "Podcasts - lär av andras erfarenheter!"
 date:   2016-12-06 08:48:31 +0200
 categories: podcasts
+lang: sv
+ref: podcasts
 ---
 
 Min vana är att när jag är på väg någonstans att försöka lyssna på podcasts eller talbäcker hellre än musik. Jag känner mig helt enkelt mindre stressad och samtidigt lär jag mig något under tiden. Å andra sidan så är det musik som fungerar bäst när jag programmerar eller gör något kreativt.

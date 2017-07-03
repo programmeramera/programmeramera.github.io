@@ -207,11 +207,11 @@ var BizzyBeesGame = (function () {
         });
     }
     BizzyBeesGame.prototype.preload = function () {
-        this.game.load.image(TEXTURE_BACKGROUND, "assets/GameScreenBackground.png");
-        this.game.load.image(TEXTURE_FOREGROUND, "assets/GameScreenForeground.png");
-        this.game.load.image(TEXTURE_HUD, "assets/HUDBackground.png");
-        this.game.load.spritesheet(TEXTURE_FLOWER_MAP, "assets/flowermap.png", 72, 72, 7);
-        this.game.load.spritesheet(TEXTURE_BEE_MAP, "assets/beemap.png", 91, 91, 6);
+        this.game.load.image(TEXTURE_BACKGROUND, "http://programmeramera.se/pages/bizzybees/assets/GameScreenBackground.png");
+        this.game.load.image(TEXTURE_FOREGROUND, "http://programmeramera.se/pages/bizzybees/assets/GameScreenForeground.png");
+        this.game.load.image(TEXTURE_HUD, "http://programmeramera.se/pages/bizzybees/assets/HUDBackground.png");
+        this.game.load.spritesheet(TEXTURE_FLOWER_MAP, "http://programmeramera.se/pages/bizzybees/assets/flowermap.png", 72, 72, 7);
+        this.game.load.spritesheet(TEXTURE_BEE_MAP, "http://programmeramera.se/pages/bizzybees/assets/beemap.png", 91, 91, 6);
     };
     BizzyBeesGame.prototype.create = function () {
         this.score = 0;

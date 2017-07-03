@@ -11,8 +11,8 @@ I ett försök att lära mig mer om Typescript som är ett superset av Javascrip
 Resultatet går att [prova på här]. Och om du är nyfiken på koden så går den att [hitta på GitHub].
 
 <div>
-<script src="../pages/bizzybees/js/phaser.js"></script>
-<script src="../pages/bizzybees/js/game.js"></script>
+<script src="http://programmeramera.se/pages/bizzybees/js/phaser.js"></script>
+<script src="http://programmeramera.se/pages/bizzybees/js/game.js"></script>
 <div id="content"></div>
 </div>
 

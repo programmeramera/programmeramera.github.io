@@ -114,7 +114,7 @@ var BootState = (function (_super) {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     BootState.prototype.preload = function () {
-        this.load.baseURL = "http://www.programmeramera.se/pages/bizzybees/";
+        this.load.baseURL = "http://programmeramera.se/pages/bizzybees/";
         this.load.image(TEXTURE_PRELOADBAR, "assets/flowermap.png");
     };
     BootState.prototype.create = function () {

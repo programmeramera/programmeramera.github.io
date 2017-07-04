@@ -108,6 +108,20 @@ var BeePicker = (function (_super) {
     };
     return BeePicker;
 }(Phaser.Group));
+var BootState = (function (_super) {
+    __extends(BootState, _super);
+    function BootState() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    BootState.prototype.preload = function () {
+        this.load.baseURL = "http://www.programmeramera.se/pages/bizzybees/";
+        this.load.image(TEXTURE_PRELOADBAR, "assets/flowermap.png");
+    };
+    BootState.prototype.create = function () {
+        this.game.state.start(STATE_PRELOADER, true, false);
+    };
+    return BootState;
+}(Phaser.State));
 var Column = (function (_super) {
     __extends(Column, _super);
     function Column(game, col) {
@@ -181,6 +195,7 @@ var TEXTURE_FOREGROUND = "foregroundTexture";
 var TEXTURE_FLOWER_MAP = "flowerMap";
 var TEXTURE_BEE_MAP = "beeMap";
 var TEXTURE_HUD = "hudBackground";
+var TEXTURE_PRELOADBAR = "preloadBar";
 var BEE_DELTA_X = 96;
 var BEE_START_X = 5;
 var BEE_START_Y = 700;
@@ -189,6 +204,10 @@ var FONT_SMALL = { font: "24px Arial", fill: "#000" };
 var FONT_MEDIUM = { font: "30px Arial", fill: "#000" };
 var FONT_LARGE = { font: "36px Arial", fill: "#000" };
 var FONT_HUGE = { font: "46px Arial", fill: "#000", fontWeight: "bold" };
+var STATE_GAME = "GameState";
+var STATE_PRELOADER = "PreloaderState";
+var STATE_BOOT = "BootState";
+var STATE_GAME_OVER = "GameOverState";
 var Flower = (function (_super) {
     __extends(Flower, _super);
     function Flower(game, x, y, key, frame) {
@@ -198,39 +217,73 @@ var Flower = (function (_super) {
     }
     return Flower;
 }(Phaser.Sprite));
-var BizzyBeesGame = (function () {
+var BizzyBeesGame = (function (_super) {
+    __extends(BizzyBeesGame, _super);
     function BizzyBeesGame() {
-        this.game = new Phaser.Game(480, 800, Phaser.AUTO, 'content', {
-            preload: this.preload,
-            create: this.create,
-            update: this.update,
-        });
+        var _this = _super.call(this, 480, 800, Phaser.AUTO, 'content', null) || this;
+        _this.state.add(STATE_BOOT, BootState, null);
+        _this.state.add(STATE_PRELOADER, PreloaderState, null);
+        _this.state.add(STATE_GAME_OVER, GameOverState, null);
+        _this.state.add(STATE_GAME, GameState, null);
+        _this.state.start(STATE_BOOT);
+        return _this;
     }
-    BizzyBeesGame.prototype.preload = function () {
-        this.game.load.image(TEXTURE_BACKGROUND, "http://programmeramera.se/pages/bizzybees/assets/GameScreenBackground.png");
-        this.game.load.image(TEXTURE_FOREGROUND, "http://programmeramera.se/pages/bizzybees/assets/GameScreenForeground.png");
-        this.game.load.image(TEXTURE_HUD, "http://programmeramera.se/pages/bizzybees/assets/HUDBackground.png");
-        this.game.load.spritesheet(TEXTURE_FLOWER_MAP, "http://programmeramera.se/pages/bizzybees/assets/flowermap.png", 72, 72, 7);
-        this.game.load.spritesheet(TEXTURE_BEE_MAP, "http://programmeramera.se/pages/bizzybees/assets/beemap.png", 91, 91, 6);
+    return BizzyBeesGame;
+}(Phaser.Game));
+// when the page has finished loading, create our game
+window.onload = function () {
+    var game = new BizzyBeesGame();
+};
+var GameOverState = (function (_super) {
+    __extends(GameOverState, _super);
+    function GameOverState() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    GameOverState.prototype.init = function (isGameOver, score) {
+        this.isGameOver = isGameOver;
+        this.score = score;
     };
-    BizzyBeesGame.prototype.create = function () {
+    GameOverState.prototype.create = function () {
+        this.add.sprite(0, 0, TEXTURE_BACKGROUND);
+        if (this.isGameOver) {
+            this.add.text(240, 300, "GAME OVER", FONT_HUGE).anchor.set(0.5, 0.5);
+            this.add.text(240, 400, this.score + " points", FONT_HUGE).anchor.set(0.5, 0.5);
+        }
+        else {
+            this.add.text(240, 300, "TAP TO PLAY", FONT_HUGE).anchor.set(0.5, 0.5);
+        }
+    };
+    GameOverState.prototype.update = function () {
+        this.input.onTap.addOnce(this.startGame, this);
+    };
+    GameOverState.prototype.startGame = function () {
+        this.game.state.start(STATE_GAME, true, false);
+    };
+    return GameOverState;
+}(Phaser.State));
+var GameState = (function (_super) {
+    __extends(GameState, _super);
+    function GameState() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    GameState.prototype.create = function () {
         this.score = 0;
         this.level = 1;
         this.gameOver = false;
-        this.backgroundTexture = this.game.add.sprite(0, 0, TEXTURE_BACKGROUND);
-        this.foregroundTexture = this.game.add.sprite(0, 0, TEXTURE_FOREGROUND);
-        this.hudTexture = this.game.add.sprite(7, 7, TEXTURE_HUD);
-        this.game.add.text(100, 28, "Marathon", FONT_MEDIUM).anchor.set(0.5, 0.5);
+        this.backgroundTexture = this.add.sprite(0, 0, TEXTURE_BACKGROUND);
+        this.foregroundTexture = this.add.sprite(0, 0, TEXTURE_FOREGROUND);
+        this.hudTexture = this.add.sprite(7, 7, TEXTURE_HUD);
+        this.add.text(100, 28, "Marathon", FONT_MEDIUM).anchor.set(0.5, 0.5);
         //Print out instructions
-        this.game.add.text(340, 28, "Match flowers and bees", FONT_SMALL).anchor.set(0.5, 0.5);
-        this.game.add.text(340, 55, "Rainbow flowers match", FONT_SMALL).anchor.set(0.5, 0.5);
-        this.game.add.text(340, 80, "with all bees", FONT_SMALL).anchor.set(0.5, 0.5);
+        this.add.text(340, 28, "Match flowers and bees", FONT_SMALL).anchor.set(0.5, 0.5);
+        this.add.text(340, 55, "Rainbow flowers match", FONT_SMALL).anchor.set(0.5, 0.5);
+        this.add.text(340, 80, "with all bees", FONT_SMALL).anchor.set(0.5, 0.5);
         //Print out goal message
-        this.game.add.text(240, 130, "Collect Rainbow Flowers", FONT_LARGE).anchor.set(0.5, 0.5);
-        this.scoreText = this.game.add.text(140, 65, "0", { font: "34px Arial" });
+        this.add.text(240, 130, "Collect Rainbow Flowers", FONT_LARGE).anchor.set(0.5, 0.5);
+        this.scoreText = this.add.text(140, 65, "0", { font: "34px Arial" });
         this.scoreText.visible = true;
         this.scoreText.anchor.set(0.5, 0.5);
-        this.levelText = this.game.add.text(55, 65, "1", { font: "34px Arial" });
+        this.levelText = this.add.text(55, 65, "1", { font: "34px Arial" });
         this.levelText.visible = true;
         this.levelText.anchor.set(0.5, 0.5);
         this.columns = new Array();
@@ -238,13 +291,13 @@ var BizzyBeesGame = (function () {
             this.columns.push(new Column(this.game, i));
         }
         this.beePicker = new BeePicker(this.game);
-        this.gameOverText = this.game.add.text(240, 400, "GAME OVER", FONT_HUGE);
+        this.gameOverText = this.add.text(240, 400, "GAME OVER", FONT_HUGE);
         this.gameOverText.anchor.set(0.5, 0.5);
         this.gameOverText.visible = false;
     };
-    BizzyBeesGame.prototype.update = function () {
+    GameState.prototype.update = function () {
         if (!this.gameOver) {
-            if (this.game.input.activePointer.justPressed()) {
+            if (this.input.activePointer.justPressed()) {
                 var position = this.game.input.activePointer.position;
                 var selectedBee = this.beePicker.getSelectedBee();
                 if (selectedBee != undefined) {
@@ -292,32 +345,41 @@ var BizzyBeesGame = (function () {
                 }
             });
             if (hasAnyFlowerReachedBottom) {
-                this.gameOver = true;
-                this.beePicker.alive = false;
-                this.gameOverText.visible = true;
-                this.columns.forEach(function (element) {
-                    element.alive = false;
-                });
-            }
-        }
-        else {
-            if (this.game.input.activePointer.justPressed()) {
-                this.columns.forEach(function (element) {
-                    element.reset();
-                });
-                this.beePicker.reset();
-                this.score = 0;
-                this.scoreText.text = "" + this.score;
-                this.level = 1;
-                this.levelText.text = "" + this.level;
-                this.gameOver = false;
-                this.gameOverText.visible = false;
+                // this.gameOver = true;
+                // this.beePicker.alive = false;
+                // this.gameOverText.visible = true;
+                // this.columns.forEach(element => {
+                //     element.alive = false;
+                // });
+                this.game.state.start(STATE_GAME_OVER, true, false, true, this.score);
             }
         }
     };
-    return BizzyBeesGame;
-}());
-// when the page has finished loading, create our game
-window.onload = function () {
-    var game = new BizzyBeesGame();
-};
+    return GameState;
+}(Phaser.State));
+var PreloaderState = (function (_super) {
+    __extends(PreloaderState, _super);
+    function PreloaderState() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    PreloaderState.prototype.preload = function () {
+        this.preloadBar = this.add.sprite(240, 250, TEXTURE_PRELOADBAR);
+        this.preloadBar.anchor.set(0.5, 0.5);
+        this.preloadBar.width = 430;
+        this.preloadBar.height = 72;
+        this.load.setPreloadSprite(this.preloadBar);
+        this.load.image(TEXTURE_BACKGROUND, "assets/GameScreenBackground.png");
+        this.load.image(TEXTURE_FOREGROUND, "assets/GameScreenForeground.png");
+        this.load.image(TEXTURE_HUD, "assets/HUDBackground.png");
+        this.load.spritesheet(TEXTURE_FLOWER_MAP, "assets/flowermap.png", 72, 72, 7);
+        this.load.spritesheet(TEXTURE_BEE_MAP, "assets/beemap.png", 91, 91, 6);
+    };
+    PreloaderState.prototype.create = function () {
+        var tween = this.add.tween(this.preloadBar).to({ alpha: 0 }, 1000, Phaser.Easing.Linear.None, true);
+        tween.onComplete.add(this.startGame, this);
+    };
+    PreloaderState.prototype.startGame = function () {
+        this.game.state.start(STATE_GAME_OVER, true, false);
+    };
+    return PreloaderState;
+}(Phaser.State));

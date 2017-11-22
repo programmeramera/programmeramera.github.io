@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Introducing programming, part 2"
-date: 2017-11-15 07:00:00 +0100
+#date: 2017-11-15 07:00:00 +0100
 categories: programming introduction python
 lang: en
 ref: introduktiontillprogrammeringdel2
@@ -53,25 +53,37 @@ After the lunch I had unpacked and configured the computers I brought. I introdu
 
 I also introduced the Python language and mentioned its popularity and simplicity, my ambition was to quite rapidly introduce the turtle graphics module to make the development more fun since visual execution is much more fun than the console interactions. However here I quickly realized that I had greatly overestimated the students understanding of computers and actual keyboards. They didn't know how to save files (they didn't understand the concept of files either) with CTRL+S and it was even more confusing since the students with MacBooks had to use a separate command CMD+S. I also failed in explaining thoroughly the different parts of the development environment (editor, terminal, explorer) which meant I had to several times help the students in running the edited file in the terminal instead of trying to run commands in the editor. I also realized that not only the difference between () and [] was very confusing as well as the commands to get these characters was challenging for all of the students. They simply doesn't leverage keyboards. We managed to write and run scripts as following:
 
+```python
 print('Hello world')
+```
 
+```python
 print(2+3)
+```
 
+```python
 name = input()
 print(name)
+```
 
+```python
 for i in range(5):
 	print(i)
+```
 
+```python
 names = ['Johan', 'Lina', 'Max', 'Matilda']
 for name in names:
 	print(name)
+```
 
+```python
 prices = [ 2, 3, 4, 6]
 sum = 0
 for price in prices:
 	sum = sum + price
 print(sum)
+```
 
 Things to consider:
 This might not sound like much, but it took a lot of effort to just explain the need for indentation, quotation of strings and I was quite hit when I realized that the MacBooks where running Python 2.7 while all the Windows devices was running 3.6 meaning that even the simplest exercises above had to be changed for these two devices, and since I didn't have access to Internet, I actually stumbled a while with this matter.

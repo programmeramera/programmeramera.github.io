@@ -1,0 +1,12 @@
+body {
+    background-color: black;
+    padding: 0px;
+    margin: 0px;
+}
+
+#content {
+    margin: 0 auto;
+    background-color: white;
+    width: 288px;
+    height: 505px;
+}

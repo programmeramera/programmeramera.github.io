@@ -20,12 +20,12 @@ using namespace Windows::UI::Xaml::Controls;
 mWebView = ref new WebView();
 
 mWebView->NavigationCompleted += ref new TypedEventHandler<WebView^, WebViewNavigationCompletedEventArgs^>(
-	this, &RefWebViewWrapperImpl::OnNavigationCompleted
+	this, &WebViewWrapper::OnNavigationCompleted
 	);
 
 ...
 
-void OnNavigationCompleted(WebView^ sender, WebViewNavigationCompletedEventArgs^ args) {
+void WebViewWrapper::OnNavigationCompleted(WebView^ sender, WebViewNavigationCompletedEventArgs^ args) {
 	// Do work here
 }
 ```
@@ -47,12 +47,40 @@ An approach that I have been recommended though is to use the following approach
 ```c++
 ...
 mWebView->NavigationCompleted += ref new TypedEventHandler<WebView^, WebViewNavigationCompletedEventArgs^>(
-	std::bind(&WebViewWrapperImpl::OnNavigationCompleted, this, std::placeholders::_1, std::placeholders::_2)
+	std::bind(&WebViewWrapper::OnNavigationCompleted, this, std::placeholders::_1, std::placeholders::_2)
     );
 
 ...
 
-void OnNavigationCompleted(WebView^ sender, WebViewNavigationCompletedEventArgs^ args) {
+void WebViewWrapper::OnNavigationCompleted(WebView^ sender, WebViewNavigationCompletedEventArgs^ args) {
 	// Do work here
 }
+```
+
+All of the approaches above does require us to use C++/CX though but in a near future (well honestly now) with the leverage of CppWinRT we can write this code instead.
+
+``` c++
+using namespace winrt::Windows::Foundation;
+using namespace winrt::Windows::UI::Xaml::Controls;
+
+...
+
+mWebView.NavigationCompleted(TypedEventHandler<WebView, WebViewNavigationCompletedEventArgs>(
+	this, &WebViewWrapper::OnNavigationCompleted
+	);
+
+...
+
+void WebViewWrapper::OnNavigationCompleted(WebView const & sender, WebViewNavigationCompletedEventArgs const & args) {
+	// Do work here
+}
+```
+
+Or if we still would like to go with the lambda version.
+
+```c++
+...
+mWebView.NavigationCompleted([&](WebView const & sender, WebViewNavigationCompletedEventArgs const & args) {
+        // Do work here
+    });
 ```

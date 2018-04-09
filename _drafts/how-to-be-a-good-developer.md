@@ -10,7 +10,7 @@ Being a good developer naturally requires lots of technical skills in software e
 
 When I introduce programming to students I also take the opportunity to discuss some of the more personal skills and capabilities of a good developer. Please bear in mind that these are my personal preferences and I would really like to get some feedback on them:
 
-### Linguist - strong skills in english
+### Linguist - strong skills in English
 
 I guess this comes as no secret but most of the content available, including search results, blogs, questions on stackoverflow is written in english. And don't forget that most programming languages are using english words as syntax.
 

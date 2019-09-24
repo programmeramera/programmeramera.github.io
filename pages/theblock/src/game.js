@@ -453,7 +453,7 @@ var Game = /** @class */ (function () {
         // set image path so we don't have to reference the sprite sheet by it's path
         kontra.setImagePath('./assets/');
         // load the sprite sheet
-        kontra.load('spritesheet.png', 'start.png', 'win.png', 'ground.png', 'button.png', 'bridge_sprite.png').then(function () {
+        kontra.load('spritesheet.png', 'win.png', 'ground.png', 'button.png', 'bridge_sprite.png').then(function () {
             // create the spritesheet
             var spriteSheet = new kontra.SpriteSheet({
                 image: kontra.imageAssets['spritesheet'],

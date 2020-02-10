@@ -5,7 +5,7 @@ date: 2020-02-10 01:00:00 +0100
 categories: programming unity gamedevelopment
 lang: sv
 ref: prototypingwithunitysantoriniv01
-unity_dir: santorini/v0.2
+unity_dir: santorini/v0.3
 ---
 Här är en prototyp av det roliga brädspelet Santorini, gjord i Unity. Spelet är för två spelare som turas om att flytta byggare och bygga torn, i ett försk att antingen få en byggare att stå på den tredje nivån på ett torn, alternativt stoppa motspelare från att kunna röra sig.
 

@@ -10,6 +10,9 @@ layout: default
 
   <div class="post-content" itemprop="articleBody">
     {{ content }}
+    {% if page.unity_dir %}
+      {% include unity.html %}
+    {% endif %}
   </div>
 
   {% if site.disqus.shortname %}

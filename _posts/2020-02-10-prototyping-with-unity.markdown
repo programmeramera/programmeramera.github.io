@@ -5,7 +5,7 @@ date: 2020-02-10 01:00:00 +0100
 categories: programming unity gamedevelopment
 lang: en
 ref: prototypingwithunitysantoriniv01
-unity_dir: santorini/v0.1
+unity_dir: santorini/v0.2
 ---
 This is a prototype of the excellent board game Santorini, implemented with Unity. The game is a two player game in which players take turn in moving builders and building towers, trying to either move a builder to the third level, or stop the other playing from being able to move.
 

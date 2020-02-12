@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Skapa prototyper med Unity - del 2"
-date: 2020-02-10 01:00:00 +0100
+date: 2020-02-12 01:00:00 +0100
 categories: programming unity gamedevelopment
 lang: sv
 ref: prototypingwithunitysantoriniv02

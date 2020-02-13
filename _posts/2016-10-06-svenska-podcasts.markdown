@@ -7,7 +7,7 @@ lang: sv
 ref: podcasts
 ---
 
-Min vana är att när jag är på väg någonstans att försöka lyssna på podcasts eller talbäcker hellre än musik. Jag känner mig helt enkelt mindre stressad och samtidigt lär jag mig något under tiden. Å andra sidan så är det musik som fungerar bäst när jag programmerar eller gör något kreativt.
+Min vana är att när jag är på väg någonstans att försöka lyssna på podcasts eller talböcker hellre än musik. Jag känner mig helt enkelt mindre stressad och samtidigt lär jag mig något under tiden. Å andra sidan så är det musik som fungerar bäst när jag programmerar eller gör något kreativt.
 Jag lyssnar både på podcasts på svenska och engelska och vill här rekommendera några av svenska podcasts som jag försöker att följa så gott det går:
 
 - Väg 74 är den senaste podcasten jag hittat men är också den som jag för närvarande försöker att komma ifatt så fort jag kan då jag själv motiveras mycket av att försöka bli bättre varje dag. Väg 74 kan du [lyssna på här][vag-74]!

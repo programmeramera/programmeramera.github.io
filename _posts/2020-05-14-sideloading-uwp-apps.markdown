@@ -31,4 +31,4 @@ Now the signing certificate will be installed and then the script will continue 
 
 Good Luck!
 
-[files]: http://programmeramera.se/assets/msix_files.png
+[files]: /assets/msix_files.png

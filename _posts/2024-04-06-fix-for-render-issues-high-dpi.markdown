@@ -22,7 +22,7 @@ glfwWindowHint(GLFW_COCOA_RETINA_FRAMEBUFFER, GLFW_FALSE); // this is the added 
 ...
 window = glfwCreateWindow(...);
 glfwMakeContextCurrent(window);
-...
+```
 
 With that addition to the setup of GLFW the window now renders as the following image.
 

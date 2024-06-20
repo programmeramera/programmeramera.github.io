@@ -13,6 +13,9 @@ layout: default
     {% if page.unity_dir %}
       {% include unity.html %}
     {% endif %}
+    {% if page.emscripten_dir %}
+      {% include emscripten.html %}
+    {% endif %}
   </div>
 
   {% if site.disqus.shortname %}

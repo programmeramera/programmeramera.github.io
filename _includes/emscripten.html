@@ -1,0 +1,37 @@
+<!-- <script src="{{ site.baseurl }}/assets/emscripten/{{page.emscripten_dir}}/index.js"></script>
+<script>
+  var gameInstance = UnityLoader.instantiate("gameContainer", "{{ site.baseurl}}/assets/unity/{{page.unity_dir}}/Build/WebGL.json");  
+</script>
+<div class="webgl-content">
+  <div id="gameContainer" style="width: 800; height: 500px"></div>
+</div> -->
+<div class=spinner id=spinner></div>
+<div class=emscripten id=status>Downloading...</div>
+<span id=controls>
+    <span>
+        <input type=checkbox id=resize>Resize canvas
+    </span>
+    <span>
+        <input type=checkbox id=pointerLock checked>Lock/hide mouse pointer    
+    </span>
+    <span>
+        <input type=button onclick='Module.requestFullscreen(document.getElementById("pointerLock").checked,document.getElementById("resize").checked)'value=Fullscreen>
+    </span>
+</span>
+<div class=emscripten>
+    <progress hidden id=progress max=100 value=0></progress>
+</div>
+<div class=emscripten_border>
+    <canvas class=emscripten id=canvas oncontextmenu=event.preventDefault() tabindex=-1></canvas>
+</div>
+<script>
+  function findWasmBinary() {
+    var f = "{{ site.baseurl }}/assets/emscripten/{{page.emscripten_dir}}/index.wasm";
+    // if (!isDataURI(f)) {
+    //   return locateFile(f);
+    // }
+    return f;
+  }
+</script>
+<!-- <script>var statusElement=document.getElementById("status"),progressElement=document.getElementById("progress"),spinnerElement=document.getElementById("spinner"),Module={print:function(){var e=document.getElementById("output");return e&&(e.value=""),(...t)=>{var n=t.join(" ");console.log(n),e&&(e.value+=n+"\n",e.scrollTop=e.scrollHeight)}}(),canvas:(()=>{var e=document.getElementById("canvas");return e.addEventListener("webglcontextlost",(e=>{alert("WebGL context lost. You will need to reload the page."),e.preventDefault()}),!1),e})(),setStatus:e=>{if(Module.setStatus.last||(Module.setStatus.last={time:Date.now(),text:""}),e!==Module.setStatus.last.text){var t=e.match(/([^(]+)\((\d+(\.\d+)?)\/(\d+)\)/),n=Date.now();t&&n-Module.setStatus.last.time<30||(Module.setStatus.last.time=n,Module.setStatus.last.text=e,t?(e=t[1],progressElement.value=100*parseInt(t[2]),progressElement.max=100*parseInt(t[4]),progressElement.hidden=!1,spinnerElement.hidden=!1):(progressElement.value=null,progressElement.max=null,progressElement.hidden=!0,e||(spinnerElement.style.display="none")),statusElement.innerHTML=e)}},totalDependencies:0,monitorRunDependencies:e=>{this.totalDependencies=Math.max(this.totalDependencies,e),Module.setStatus(e?"Preparing... ("+(this.totalDependencies-e)+"/"+this.totalDependencies+")":"All downloads complete.")}};Module.setStatus("Downloading..."),window.onerror=e=>{Module.setStatus("Exception thrown, see JavaScript console"),spinnerElement.style.display="none",Module.setStatus=e=>{e&&console.error("[post-exception status] "+e)}}</script> -->
+<script async src="{{ site.baseurl }}/assets/emscripten/{{page.emscripten_dir}}/index.js"></script>

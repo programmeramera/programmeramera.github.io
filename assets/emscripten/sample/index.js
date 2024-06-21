@@ -680,7 +680,7 @@ function unexportedRuntimeSymbol(sym) {
   }
 }
 var ASM_CONSTS = {
-  51392: () => {
+  51448: () => {
     FS.mkdir("/shaders");
     FS.mount(MEMFS, {}, "/shaders");
   },
@@ -4160,32 +4160,6 @@ var __emscripten_memcpy_js = (dest, src, num) =>
 var __emscripten_throw_longjmp = () => {
   throw Infinity;
 };
-var getTypeName = (type) => {
-  var ptr = ___getTypeName(type);
-  var rv = readLatin1String(ptr);
-  _free(ptr);
-  return rv;
-};
-var requireRegisteredType = (rawType, humanName) => {
-  var impl = registeredTypes[rawType];
-  if (undefined === impl) {
-    throwBindingError(`${humanName} has unknown type ${getTypeName(rawType)}`);
-  }
-  return impl;
-};
-var emval_returnValue = (returnType, destructorsRef, handle) => {
-  var destructors = [];
-  var result = returnType["toWireType"](destructors, handle);
-  if (destructors.length) {
-    HEAPU32[destructorsRef >> 2] = Emval.toHandle(destructors);
-  }
-  return result;
-};
-var __emval_as = (handle, returnType, destructorsRef) => {
-  handle = Emval.toValue(handle);
-  returnType = requireRegisteredType(returnType, "emval::as");
-  return emval_returnValue(returnType, destructorsRef, handle);
-};
 var emval_symbols = {};
 var getStringOrSymbol = (address) => {
   var symbol = emval_symbols[address];
@@ -4209,24 +4183,6 @@ var __emval_get_global = (name) => {
     name = getStringOrSymbol(name);
     return Emval.toHandle(emval_get_global()[name]);
   }
-};
-var __emval_get_property = (handle, key) => {
-  handle = Emval.toValue(handle);
-  key = Emval.toValue(key);
-  return Emval.toHandle(handle[key]);
-};
-var __emval_new_cstring = (v) => Emval.toHandle(getStringOrSymbol(v));
-var runDestructors = (destructors) => {
-  while (destructors.length) {
-    var ptr = destructors.pop();
-    var del = destructors.pop();
-    del(ptr);
-  }
-};
-var __emval_run_destructors = (handle) => {
-  var destructors = Emval.toValue(handle);
-  runDestructors(destructors);
-  __emval_decref(handle);
 };
 var runtimeKeepaliveCounter = 0;
 var runtimeKeepalivePush = () => {
@@ -9458,12 +9414,8 @@ var wasmImports = {
   _emscripten_get_now_is_monotonic: __emscripten_get_now_is_monotonic,
   _emscripten_memcpy_js: __emscripten_memcpy_js,
   _emscripten_throw_longjmp: __emscripten_throw_longjmp,
-  _emval_as: __emval_as,
   _emval_decref: __emval_decref,
   _emval_get_global: __emval_get_global,
-  _emval_get_property: __emval_get_property,
-  _emval_new_cstring: __emval_new_cstring,
-  _emval_run_destructors: __emval_run_destructors,
   alBufferData: _alBufferData,
   alDeleteBuffers: _alDeleteBuffers,
   alDeleteSources: _alDeleteSources,
@@ -9838,9 +9790,11 @@ var missingLibrarySymbols = [
   "setErrNo",
   "demangle",
   "stackTrace",
+  "getTypeName",
   "getFunctionName",
   "getFunctionArgsName",
   "heap32VectorToArray",
+  "requireRegisteredType",
   "usesDestructorStack",
   "createJsInvokerSignature",
   "createJsInvoker",
@@ -9858,6 +9812,7 @@ var missingLibrarySymbols = [
   "getInheritedInstanceCount",
   "getLiveInheritedInstances",
   "enumReadValueFromPointer",
+  "runDestructors",
   "newFunc",
   "craftInvokerFunction",
   "embind__requireFunction",
@@ -9885,6 +9840,7 @@ var missingLibrarySymbols = [
   "char_0",
   "char_9",
   "makeLegalFunctionName",
+  "emval_returnValue",
   "emval_lookupTypes",
   "emval_addMethodCaller",
 ];
@@ -10057,8 +10013,6 @@ var unexportedSymbols = [
   "embind_charCodes",
   "embind_init_charCodes",
   "readLatin1String",
-  "getTypeName",
-  "requireRegisteredType",
   "UnboundTypeError",
   "PureVirtualError",
   "GenericWireTypeSize",
@@ -10070,7 +10024,6 @@ var unexportedSymbols = [
   "integerReadValueFromPointer",
   "floatReadValueFromPointer",
   "readPointer",
-  "runDestructors",
   "finalizationRegistry",
   "detachFinalizer_deps",
   "deletionQueue",
@@ -10083,7 +10036,6 @@ var unexportedSymbols = [
   "getStringOrSymbol",
   "Emval",
   "emval_get_global",
-  "emval_returnValue",
   "emval_methodCallers",
   "reflectConstruct",
 ];

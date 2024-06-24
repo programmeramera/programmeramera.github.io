@@ -268,17 +268,20 @@ GEM
     unf_ext (0.0.7.7)
     unf_ext (0.0.7.7-x64-mingw32)
     unicode-display_width (1.7.0)
+    webrick (1.8.1)
 
 PLATFORMS
+  aarch64-linux-gnu
   x64-mingw32
   x86_64-linux
 
 DEPENDENCIES
   github-pages
   minima
+  webrick
 
 RUBY VERSION
-   ruby 2.7.1p83
+   ruby 3.2.3p157
 
 BUNDLED WITH
    2.2.4

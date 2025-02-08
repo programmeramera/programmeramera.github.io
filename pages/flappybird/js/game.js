@@ -245,7 +245,7 @@ var FlappyBird;
             return _super !== null && _super.apply(this, arguments) || this;
         }
         BootState.prototype.preload = function () {
-            this.load.baseURL = "http://programmeramera.se/pages/flappybird/";
+            this.load.baseURL = "https://programmeramera.se/pages/flappybird/";
             this.load.image("preloader", "assets/preloader.gif");
         };
         BootState.prototype.create = function () {

@@ -3,7 +3,7 @@ layout: post
 title: "Preventing secrets in repositories"
 date: 2025-02-08 01:00:00 +0100
 categories: programming security git
-lang: sv
+lang: en
 ref: preventingsecretsinrepositories
 ---
 Working with application security is a never ending learning experience. I constantly learn from my peers and try to stay updated on recommended practices and behaviors. Naturally I also try to pay these lessons forward as well including speaking at conferences, user-groups and in client assignments.
